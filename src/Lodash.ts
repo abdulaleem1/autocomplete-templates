@@ -1,6 +1,8 @@
 import _ from 'lodash';
-import { DropdownItem } from './components/Dropdown';
 
-export const getAllLodashFunctions = () : DropdownItem[] => {
-    return Object.entries(_).filter(i => typeof i[1] === 'function').map(item => { return { label: item[0], value: item[0] }} );
+export interface LodashMap{
+    [key:string]:Function;
 }
+export const getAllLodashFunctions = () : string[] =>Object.entries(_)
+    .filter(i => typeof i[1] === "function")
+    .map(i=>i[0]); 
